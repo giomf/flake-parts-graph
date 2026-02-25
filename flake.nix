@@ -1,5 +1,5 @@
 {
-  description = "A simple python flake base on pyproject";
+  description = "A simple flake-parts-graph (fpg) analyser that prints the import order of nixos modules";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     pyproject-nix.url = "github:pyproject-nix/pyproject.nix";

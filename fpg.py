@@ -130,7 +130,7 @@ def build_graph(data: list) -> ModuleGraph:
     return graph
 
 
-if __name__ == "__main__":
+def main():
     args = parse_args()
     data = load_json(args.input)
 
@@ -139,3 +139,7 @@ if __name__ == "__main__":
         print(graph.to_graphviz())
     else:
         print(graph.to_json())
+
+
+if __name__ == "__main__":
+    main()

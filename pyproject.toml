@@ -1,14 +1,14 @@
 [project]
-name = ""
+name = "fpg"
 version = "0.1.0"
-description = "Add your description here"
+description = "A simple flake-parts-graph (fpg) analyser that prints the import order of nixos modules"
 readme = "README.md"
 requires-python = ">=3.13"
 
 dependencies = []
 
 [project.scripts]
-main = "main:main"
+main = "fpg:main"
 
 [tool.ruff]
 # Set the maximum line length to 120
