@@ -64,9 +64,11 @@ def parse_args() -> argparse.Namespace:
         help="Path to the graph JSON file (default: graph.json)",
     )
     parser.add_argument(
-        "--graphviz",
-        action="store_true",
-        help="Output in Graphviz DOT format instead of JSON",
+        "--format",
+        type=str,
+        choices=["json", "graphviz"],
+        default="json",
+        help="Output format (default: json)",
     )
     return parser.parse_args()
 
@@ -135,10 +137,10 @@ def main():
     data = load_json(args.input)
 
     graph = build_graph(data)  # ty:ignore[invalid-argument-type]
-    if args.graphviz:
-        print(graph.to_graphviz())
-    else:
+    if args.format == "json":
         print(graph.to_json())
+    else:
+        print(graph.to_graphviz())
 
 
 if __name__ == "__main__":

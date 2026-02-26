@@ -26,14 +26,14 @@ For more details, see the [announcement on NixOS Discourse](https://discourse.ni
 `nix eval --json '.#nixosConfigurations.<your-config>.graph' > graph.json`
 
 ### Generate a simplified JSON output:  
-`fpg.py --input graph.json`  
+`fpg.py --input graph.json --format json`  
 or  
-`nix run github:giomf/flake-parts-graph -- --input graph.json`
+`nix run github:giomf/flake-parts-graph -- --input graph.json --format json`
 
 ### Generate a Graphviz output:  
-`fpg.py --input graph.json --graphviz`  
+`fpg.py --input graph.json --format graphviz`  
 or  
-`nix run github:giomf/flake-parts-graph -- --input graph.json --graphviz`
+`nix run github:giomf/flake-parts-graph -- --input graph.json --format graphviz`
 
 ## Result
 
