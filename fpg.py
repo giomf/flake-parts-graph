@@ -7,49 +7,98 @@ from pathlib import Path
 
 @dataclass
 class ModuleNode:
+    source: str = field(default_factory=str)
     imports: list[str] = field(default_factory=list)
     files: list[str] = field(default_factory=list)
 
 
 @dataclass
+class ModuleGraphEdge:
+    source: str = field(default_factory=str)
+    path: str = field(default_factory=str)
+
+    def __init__(self, entry: dict) -> None:
+        parts = str(entry["file"]).split("-source")
+        self.source = parts[0].rsplit("/", 1)[-1]
+        self.path = parts[-1].removeprefix("/")
+
+    def to_dict(self):
+        return {"source": self.source, "path": self.path}
+
+    def __eq__(self, other: object):
+        if not isinstance(other, ModuleGraphEdge):
+            return NotImplemented
+        return self.source == other.source and self.path == other.path
+
+
+@dataclass
+class ModuleGraphNode(ModuleGraphEdge):
+    imports: list[ModuleGraphEdge] = field(default_factory=list)
+
+    def to_dict(self):
+        return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}
+
+    def __eq__(self, other: object):
+        if not isinstance(other, ModuleGraphEdge):
+            return NotImplemented
+        return self.source == other.source and self.path == other.path
+
+
 class ModuleGraph:
-    modules: dict[str, ModuleNode] = field(default_factory=dict)
+    modules: dict[tuple[str, str], ModuleGraphNode]
 
-    def get_node(self, name: str) -> ModuleNode:
-        if name not in self.modules:
-            self.modules[name] = ModuleNode()
-        return self.modules[name]
+    def __init__(self, data: list) -> None:
+        """Build a ModuleGraph from the loaded JSON data."""
+        self.modules = {}
+        for entry in data:
+            self.process_entry(entry)
 
-    def add_file(self, module_name: str, filename: str) -> None:
-        node = self.get_node(module_name)
-        if filename not in node.files:
-            node.files.append(filename)
+    def process_entry(self, entry: dict, parent: ModuleGraphNode | None = None) -> None:
+        """Process a single entry from the graph JSON and add it to the ModuleGraph."""
+        edge = ModuleGraphEdge(entry)
+        node = self.get_or_create_module(edge)
 
-    def add_import(self, from_module: str, to_module: str) -> None:
-        node = self.get_node(from_module)
-        if to_module not in node.imports:
-            node.imports.append(to_module)
+        if parent is not None and edge != parent:
+            self.add_import_to_module(parent, edge)
+
+        imports = entry.get("imports", [])
+        for imported_entry in imports:
+            self.process_entry(imported_entry, node)
+
+    def get_or_create_module(self, edge: ModuleGraphEdge) -> ModuleGraphNode:
+        key = (edge.source, edge.path)
+        if key not in self.modules:
+            node = ModuleGraphNode(edge.source, edge.path)
+            self.modules[key] = node
+        return self.modules[key]
+
+    def add_import_to_module(self, parent: ModuleGraphNode, edge: ModuleGraphEdge):
+        key = (parent.source, parent.path)
+        if edge not in self.modules[key].imports:
+            self.modules[key].imports.append(edge)
 
     def to_json(self) -> str:
-        return json.dumps(
-            {name: {"imports": node.imports, "files": node.files} for name, node in self.modules.items()}, indent=2
-        )
+        result = []
+        for key in self.modules:
+            result.append(self.modules[key].to_dict())
+        return json.dumps(result, indent=2)
 
     def to_graphviz(self) -> str:
         lines = ["digraph ModuleGraph {", '\tnode [shape=box fontname="Helvetica"]']
-        for module_name, node in self.modules.items():
-            escaped_name = module_name.replace('"', '\\"')
-            label_parts = [f"<b>{module_name}</b>"]
-            if node.files:
-                label_parts.append("<br/><br/>")
-                italic_files = [f"<i>{f}</i>" for f in node.files]
-                label_parts.append("<br/>".join(italic_files))
-            label = "".join(label_parts)
-            lines.append(f'\t"{escaped_name}" [label=<{label}>];')
-        for module_name, node in self.modules.items():
-            escaped_from = module_name.replace('"', '\\"')
-            for imported_module in node.imports:
-                escaped_to = imported_module.replace('"', '\\"')
+        for (source, path), _ in self.modules.items():
+            node_id = f"{source}:{path}"
+            escaped_id = node_id.replace('"', '\\"')
+            escaped_path = path.replace('"', '\\"')
+            escaped_source = source.replace('"', '\\"')
+            # HTML-like label: path bold on top, source italic below
+            label = f"<<B>{escaped_path}</B><BR/><I>{escaped_source}</I>>"
+            lines.append(f'\t"{escaped_id}" [label={label}];')
+        for (source, path), node in self.modules.items():
+            from_id = f"{source}:{path}"
+            escaped_from = from_id.replace('"', '\\"')
+            for imported_edge in node.imports:
+                to_id = f"{imported_edge.source}:{imported_edge.path}"
+                escaped_to = to_id.replace('"', '\\"')
                 lines.append(f'\t"{escaped_from}" -> "{escaped_to}";')
         lines.append("}")
         return "\n".join(lines)
@@ -70,6 +119,7 @@ def parse_args() -> argparse.Namespace:
         default="json",
         help="Output format (default: json)",
     )
+
     return parser.parse_args()
 
 
@@ -79,64 +129,14 @@ def load_json(json_file: Path) -> dict:
     return json.load(f)
 
 
-def parse_file(file: str) -> dict | None:
-    """Extract module name from file path.
-
-    Only processes files with ", via option " in the path.
-    Returns None for files without this pattern.
-    """
-    if ", via option " not in file:
-        return None
-
-    parts = file.split(", via option ", 1)
-    file_name = parts[0].split("/", 4)[-1]
-    module_name = parts[1].removeprefix("flake.modules.")
-    return {"file_name": file_name, "module_name": module_name}
-
-
-def process_entry(entry: dict, graph: ModuleGraph, parent_module: str | None = None) -> None:
-    """Process a single entry from the graph JSON and add it to the ModuleGraph."""
-    file_path = entry.get("file", "")
-    if not file_path:
-        return
-
-    names = parse_file(file_path)
-
-    current_module = None
-    if names is not None:
-        file_name = names["file_name"]
-        module_name = names["module_name"]
-        current_module = module_name
-
-        # Add the file to the module
-        graph.add_file(module_name, file_name)
-
-        # Add import from parent module if exists and different
-        if parent_module is not None and parent_module != module_name:
-            graph.add_import(parent_module, module_name)
-
-    # Process imports recursively
-    # Pass current_module if we found one, otherwise pass parent_module to maintain chain
-    imports = entry.get("imports", [])
-    for imported_entry in imports:
-        process_entry(imported_entry, graph, current_module or parent_module)
-
-
-def build_graph(data: list) -> ModuleGraph:
-    """Build a ModuleGraph from the loaded JSON data."""
-    graph = ModuleGraph()
-
-    for entry in data:
-        process_entry(entry, graph)
-
-    return graph
-
-
 def main():
     args = parse_args()
     data = load_json(args.input)
 
-    graph = build_graph(data)  # ty:ignore[invalid-argument-type]
+    # Filter data to only handle everything under flake.nix
+    data = [element for element in data if str(element["file"]).endswith("/flake.nix")]
+    graph = ModuleGraph(data)
+
     if args.format == "json":
         print(graph.to_json())
     else:
