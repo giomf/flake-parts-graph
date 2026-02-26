@@ -16,6 +16,10 @@ Thanks to [this merged PR](https://github.com/NixOS/nixpkgs/pull/403839), we can
 
 For more details, see the [announcement on NixOS Discourse](https://discourse.nixos.org/t/nixpkgs-module-system-config-modules-graph/67722).
 
+> [!NOTE]
+> It works by searching for [flake.modules](https://flake.parts/options/flake-parts.html#opt-flake.modules) in the input graph and will therefore only visualize these.
+> Support for plain nixos modules is planed, though.
+
 
 ## Usage
 ### Obtaining the input graph:  
