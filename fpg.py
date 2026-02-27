@@ -8,21 +8,20 @@ import graphviz
 
 
 @dataclass
-class ModuleNode:
-    source: str = field(default_factory=str)
-    imports: list[str] = field(default_factory=list)
-    files: list[str] = field(default_factory=list)
-
-
-@dataclass
 class ModuleGraphEdge:
     source: str = field(default_factory=str)
     path: str = field(default_factory=str)
+    option: str = field(default_factory=str)
 
     def __init__(self, entry: dict) -> None:
-        parts = str(entry["file"]).split("-source")
-        self.source = parts[0].rsplit("/", 1)[-1]
-        self.path = parts[-1].removeprefix("/")
+        source_path, _, path_and_option = str(entry["file"]).partition("-source")
+        self.source = source_path.rsplit("/", 1)[-1]
+        path_and_option = path_and_option.removeprefix("/")
+        if ", " in path_and_option:
+            self.path, _, self.option = path_and_option.partition(", ")
+        else:
+            self.path = path_and_option
+            self.option = ""
 
     def to_dict(self):
         return {"source": self.source, "path": self.path}
@@ -38,7 +37,11 @@ class ModuleGraphNode(ModuleGraphEdge):
     imports: list[ModuleGraphEdge] = field(default_factory=list)
 
     def to_dict(self):
-        return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}
+        return (
+            super().to_dict()
+            | {"imports": [module.to_dict() for module in self.imports]}
+            | ({"option": self.option} if self.option else {})
+        )
 
     def __eq__(self, other: object):
         if not isinstance(other, ModuleGraphEdge):
@@ -70,7 +73,7 @@ class ModuleGraph:
     def get_or_create_module(self, edge: ModuleGraphEdge) -> ModuleGraphNode:
         key = (edge.source, edge.path)
         if key not in self.modules:
-            node = ModuleGraphNode(edge.source, edge.path)
+            node = ModuleGraphNode(edge.source, edge.path, edge.option)
             self.modules[key] = node
         return self.modules[key]
 
@@ -90,9 +93,9 @@ class ModuleGraph:
         dot.attr("node", shape="box", fontname="Helvetica")
 
         # Add nodes
-        for source, path in self.modules:
+        for (source, path), node in self.modules.items():
             node_id = f"{source}-{path}"
-            label = f"<<B>{path}</B><BR/><I>{source}</I>>"
+            label = f"<<B>{path}</B><BR/>{node.option}<BR/><I>{source}</I>>"
             dot.node(name=node_id, label=label)
 
         # Add edges
