@@ -1,7 +1,7 @@
 [project]
-name = "fpg"
+name = "nixoscope"
 version = "0.1.0"
-description = "A simple flake-parts-graph (fpg) analyser that prints the import order of nixos modules"
+description = "A tool for visualizing dependencies between NixOS modules"
 readme = "README.md"
 requires-python = ">=3.13"
 
@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [project.scripts]
-main = "fpg:main"
+main = "nixoscope:main"
 
 [tool.ruff]
 # Set the maximum line length to 120

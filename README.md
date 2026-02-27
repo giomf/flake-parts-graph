@@ -1,4 +1,4 @@
-# Flake-Parts-Graph (fpg)
+# NixoScope
 
 ## Why This Tool Exists
 
@@ -19,19 +19,19 @@ For more details, see the [announcement on NixOS Discourse](https://discourse.ni
 ## Usage
 
 > [!TIP]  
-> You can also use `nix run github:giomf/flake-parts-graph` instead of cloning this repository and executing `fpg.py`
+> You can also use `nix run github:giomf/nixoscope` instead of cloning this repository and executing `nixoscope.py`
 
 ### Obtaining the input graph:  
 `nix eval --json '.#nixosConfigurations.<your-config>.graph' > graph.json`
 
 ### Read the input graph:
-`fpg.py --input graph.json`  
+`nixoscope.py --input graph.json`  
 
 ### Output format:
 #### Graphviz: 
-`fpg.py --input graph.json --format gv`  
+`nixoscope.py --input graph.json --format gv`  
 #### JSON  
-`fpg.py --input graph.json --format json`  
+`nixoscope.py --input graph.json --format json`  
 
 ## Result
 ![Graphviz output](./graph.svg)
