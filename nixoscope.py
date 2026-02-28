@@ -57,28 +57,28 @@ class ModuleGraph:
         """Build a ModuleGraph from the loaded JSON data."""
         self.modules = {}
         for entry in data:
-            self.process_entry(entry)
+            self._process_entry(entry)
 
-    def process_entry(self, entry: dict, parent: ModuleGraphNode | None = None) -> None:
+    def _process_entry(self, entry: dict, parent: ModuleGraphNode | None = None) -> None:
         """Process a single entry from the graph JSON and add it to the ModuleGraph."""
         edge = ModuleGraphEdge(entry)
-        node = self.get_or_create_module(edge)
+        node = self._get_or_create_module(edge)
 
         if parent is not None and edge != parent:
-            self.add_import_to_module(parent, edge)
+            self._add_import_to_module(parent, edge)
 
         imports = entry.get("imports", [])
         for imported_entry in imports:
-            self.process_entry(imported_entry, node)
+            self._process_entry(imported_entry, node)
 
-    def get_or_create_module(self, edge: ModuleGraphEdge) -> ModuleGraphNode:
+    def _get_or_create_module(self, edge: ModuleGraphEdge) -> ModuleGraphNode:
         key = (edge.source, edge.path)
         if key not in self.modules:
             node = ModuleGraphNode(edge.source, edge.path, edge.option)
             self.modules[key] = node
         return self.modules[key]
 
-    def add_import_to_module(self, parent: ModuleGraphNode, edge: ModuleGraphEdge):
+    def _add_import_to_module(self, parent: ModuleGraphNode, edge: ModuleGraphEdge) -> None:
         key = (parent.source, parent.path)
         if edge not in self.modules[key].imports:
             self.modules[key].imports.append(edge)
