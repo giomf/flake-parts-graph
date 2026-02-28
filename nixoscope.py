@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import argparse
+import colorsys
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -90,13 +91,13 @@ class ModuleGraph:
 
     def to_gv(self) -> graphviz.Digraph:
         dot = graphviz.Digraph("ModuleGraph")
-        dot.attr("node", shape="box", fontname="Helvetica")
+        dot.attr("node", shape="box", fontname="Helvetica", style="filled")
 
         # Add nodes
         for (source, path), node in self.modules.items():
             node_id = f"{source}-{path}"
             label = f"<<B>{path}</B><BR/>{node.option}<BR/><I>{source}</I>>"
-            dot.node(name=node_id, label=label)
+            dot.node(name=node_id, label=label, fillcolor=ModuleGraph._color_from_cluster_id(source))
 
         # Add edges
         for (source, path), node in self.modules.items():
@@ -106,6 +107,18 @@ class ModuleGraph:
                 dot.edge(from_id, to_id)
 
         return dot
+
+    @staticmethod
+    def _color_from_cluster_id(cluster_id: str) -> str:
+
+        # Hash the string to a number
+        n = abs(hash(cluster_id))
+        # Use 137 as golden angle to create different colors even if two n are close in range
+        hue = (n * 137) % 360
+        saturation = 0.5  # not too grey, not too vivid
+        lightness = 0.80  # high = washed out / soft
+        r, g, b = colorsys.hls_to_rgb(hue / 360.0, lightness, saturation)
+        return f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
 
 
 def parse_args() -> argparse.Namespace:

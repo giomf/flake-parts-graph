@@ -5,14 +5,14 @@
 <!-- dx2qikyb4dyb6hbdfywbmsyla0z5a1h3&#45;flake.nix -->
 <g id="node1" class="node">
 <title>dx2qikyb4dyb6hbdfywbmsyla0z5a1h3-flake.nix</title>
-<polygon fill="none" stroke="black" points="3551.85,-910 3300.03,-910 3300.03,-860 3551.85,-860 3551.85,-910"/>
+<polygon fill="#cbe5b2" stroke="black" points="3551.85,-910 3300.03,-910 3300.03,-860 3551.85,-860 3551.85,-910"/>
 <text xml:space="preserve" text-anchor="start" x="3397.93" y="-894.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3308.03" y="-866.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">dx2qikyb4dyb6hbdfywbmsyla0z5a1h3</text>
 </g>
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.glap -->
 <g id="node2" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.glap</title>
-<polygon fill="none" stroke="black" points="1607.41,-824 1366.48,-824 1366.48,-774 1607.41,-774 1607.41,-824"/>
+<polygon fill="#d0b2e5" stroke="black" points="1607.41,-824 1366.48,-824 1366.48,-774 1607.41,-774 1607.41,-824"/>
 <text xml:space="preserve" text-anchor="start" x="1389.69" y="-808.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.glap</text>
 <text xml:space="preserve" text-anchor="start" x="1374.48" y="-780.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -25,7 +25,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/13&#45;inch/7040&#45;amd -->
 <g id="node33" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/13-inch/7040-amd</title>
-<polygon fill="none" stroke="black" points="3543.28,-824 3308.61,-824 3308.61,-774 3543.28,-774 3543.28,-824"/>
+<polygon fill="#dce5b2" stroke="black" points="3543.28,-824 3308.61,-824 3308.61,-774 3543.28,-774 3543.28,-824"/>
 <text xml:space="preserve" text-anchor="start" x="3329.85" y="-808.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/13-inch/7040-amd</text>
 <text xml:space="preserve" text-anchor="start" x="3316.61" y="-780.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -38,7 +38,7 @@
 <!-- 027sdaajhz0qlzkwmrxs5bzawf5lz6cc&#45;module.nix -->
 <g id="node47" class="node">
 <title>027sdaajhz0qlzkwmrxs5bzawf5lz6cc-module.nix</title>
-<polygon fill="none" stroke="black" points="3944.33,-824 3699.56,-824 3699.56,-774 3944.33,-774 3944.33,-824"/>
+<polygon fill="#e5b2dc" stroke="black" points="3944.33,-824 3699.56,-824 3699.56,-774 3944.33,-774 3944.33,-824"/>
 <text xml:space="preserve" text-anchor="start" x="3785" y="-808.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">module.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3707.56" y="-780.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">027sdaajhz0qlzkwmrxs5bzawf5lz6cc</text>
 </g>
@@ -51,7 +51,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;hosts/laptop/configuration.nix -->
 <g id="node3" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-hosts/laptop/configuration.nix</title>
-<polygon fill="none" stroke="black" points="1174.41,-738 933.48,-738 933.48,-688 1174.41,-688 1174.41,-738"/>
+<polygon fill="#d0b2e5" stroke="black" points="1174.41,-738 933.48,-738 933.48,-688 1174.41,-688 1174.41,-738"/>
 <text xml:space="preserve" text-anchor="start" x="953.61" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">hosts/laptop/configuration.nix</text>
 <text xml:space="preserve" text-anchor="start" x="945.38" y="-708.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.glap</text>
 <text xml:space="preserve" text-anchor="start" x="941.48" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -65,7 +65,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;hosts/laptop/disko&#45;config.nix -->
 <g id="node30" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-hosts/laptop/disko-config.nix</title>
-<polygon fill="none" stroke="black" points="1477.41,-738 1236.48,-738 1236.48,-688 1477.41,-688 1477.41,-738"/>
+<polygon fill="#d0b2e5" stroke="black" points="1477.41,-738 1236.48,-738 1236.48,-688 1477.41,-688 1477.41,-738"/>
 <text xml:space="preserve" text-anchor="start" x="1259.72" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">hosts/laptop/disko-config.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1248.38" y="-708.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.glap</text>
 <text xml:space="preserve" text-anchor="start" x="1244.48" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -79,7 +79,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;hosts/laptop/hardware.nix -->
 <g id="node31" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-hosts/laptop/hardware.nix</title>
-<polygon fill="none" stroke="black" points="1736.41,-738 1495.48,-738 1495.48,-688 1736.41,-688 1736.41,-738"/>
+<polygon fill="#d0b2e5" stroke="black" points="1736.41,-738 1495.48,-738 1495.48,-688 1736.41,-688 1736.41,-738"/>
 <text xml:space="preserve" text-anchor="start" x="1529.21" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">hosts/laptop/hardware.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1507.38" y="-708.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.glap</text>
 <text xml:space="preserve" text-anchor="start" x="1503.48" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -93,7 +93,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.guif -->
 <g id="node4" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.guif</title>
-<polygon fill="none" stroke="black" points="848.41,-652 607.48,-652 607.48,-602 848.41,-602 848.41,-652"/>
+<polygon fill="#d0b2e5" stroke="black" points="848.41,-652 607.48,-652 607.48,-602 848.41,-602 848.41,-652"/>
 <text xml:space="preserve" text-anchor="start" x="632.25" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.guif</text>
 <text xml:space="preserve" text-anchor="start" x="615.48" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -106,7 +106,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.system&#45;laptop -->
 <g id="node6" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.system-laptop</title>
-<polygon fill="none" stroke="black" points="1147.26,-652 870.63,-652 870.63,-602 1147.26,-602 1147.26,-652"/>
+<polygon fill="#d0b2e5" stroke="black" points="1147.26,-652 870.63,-652 870.63,-602 1147.26,-602 1147.26,-652"/>
 <text xml:space="preserve" text-anchor="start" x="878.63" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.system-laptop</text>
 <text xml:space="preserve" text-anchor="start" x="896.48" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -119,7 +119,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.systemd&#45;boot -->
 <g id="node28" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.systemd-boot</title>
-<polygon fill="none" stroke="black" points="1438.7,-652 1165.19,-652 1165.19,-602 1438.7,-602 1438.7,-652"/>
+<polygon fill="#d0b2e5" stroke="black" points="1438.7,-652 1165.19,-652 1165.19,-602 1438.7,-602 1438.7,-652"/>
 <text xml:space="preserve" text-anchor="start" x="1173.19" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.systemd-boot</text>
 <text xml:space="preserve" text-anchor="start" x="1189.48" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -132,7 +132,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/users/guif.nix -->
 <g id="node5" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/users/guif.nix</title>
-<polygon fill="none" stroke="black" points="844.41,-566 603.48,-566 603.48,-516 844.41,-516 844.41,-566"/>
+<polygon fill="#d0b2e5" stroke="black" points="844.41,-566 603.48,-566 603.48,-516 844.41,-516 844.41,-566"/>
 <text xml:space="preserve" text-anchor="start" x="647.71" y="-550.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/users/guif.nix</text>
 <text xml:space="preserve" text-anchor="start" x="617.33" y="-536.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.guif</text>
 <text xml:space="preserve" text-anchor="start" x="611.48" y="-522.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -146,7 +146,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/types/laptop.nix -->
 <g id="node7" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/types/laptop.nix</title>
-<polygon fill="none" stroke="black" points="1155.85,-566 862.04,-566 862.04,-516 1155.85,-516 1155.85,-566"/>
+<polygon fill="#d0b2e5" stroke="black" points="1155.85,-566 862.04,-566 862.04,-516 1155.85,-516 1155.85,-566"/>
 <text xml:space="preserve" text-anchor="start" x="898.86" y="-550.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/types/laptop.nix</text>
 <text xml:space="preserve" text-anchor="start" x="870.04" y="-536.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.system-laptop</text>
 <text xml:space="preserve" text-anchor="start" x="896.48" y="-522.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -160,7 +160,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.system&#45;default -->
 <g id="node8" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.system-default</title>
-<polygon fill="none" stroke="black" points="733.21,-480 452.68,-480 452.68,-430 733.21,-430 733.21,-480"/>
+<polygon fill="#d0b2e5" stroke="black" points="733.21,-480 452.68,-480 452.68,-430 733.21,-430 733.21,-480"/>
 <text xml:space="preserve" text-anchor="start" x="460.68" y="-464.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.system-default</text>
 <text xml:space="preserve" text-anchor="start" x="480.48" y="-436.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -173,7 +173,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.cosmic -->
 <g id="node22" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.cosmic</title>
-<polygon fill="none" stroke="black" points="998.41,-480 757.48,-480 757.48,-430 998.41,-430 998.41,-480"/>
+<polygon fill="#d0b2e5" stroke="black" points="998.41,-480 757.48,-480 757.48,-430 998.41,-430 998.41,-480"/>
 <text xml:space="preserve" text-anchor="start" x="770.96" y="-464.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.cosmic</text>
 <text xml:space="preserve" text-anchor="start" x="765.48" y="-436.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -186,7 +186,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.steam -->
 <g id="node24" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.steam</title>
-<polygon fill="none" stroke="black" points="1260.41,-480 1019.48,-480 1019.48,-430 1260.41,-430 1260.41,-480"/>
+<polygon fill="#d0b2e5" stroke="black" points="1260.41,-480 1019.48,-480 1019.48,-430 1260.41,-430 1260.41,-480"/>
 <text xml:space="preserve" text-anchor="start" x="1036.85" y="-464.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.steam</text>
 <text xml:space="preserve" text-anchor="start" x="1027.48" y="-436.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -199,7 +199,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.templates -->
 <g id="node26" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.templates</title>
-<polygon fill="none" stroke="black" points="1533.49,-480 1286.4,-480 1286.4,-430 1533.49,-430 1533.49,-480"/>
+<polygon fill="#d0b2e5" stroke="black" points="1533.49,-480 1286.4,-480 1286.4,-430 1533.49,-430 1533.49,-480"/>
 <text xml:space="preserve" text-anchor="start" x="1294.4" y="-464.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.templates</text>
 <text xml:space="preserve" text-anchor="start" x="1297.48" y="-436.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -212,7 +212,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/types/default.nix -->
 <g id="node9" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/types/default.nix</title>
-<polygon fill="none" stroke="black" points="732.79,-394 435.1,-394 435.1,-344 732.79,-344 732.79,-394"/>
+<polygon fill="#d0b2e5" stroke="black" points="732.79,-394 435.1,-394 435.1,-344 732.79,-344 732.79,-394"/>
 <text xml:space="preserve" text-anchor="start" x="471.91" y="-378.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/types/default.nix</text>
 <text xml:space="preserve" text-anchor="start" x="443.1" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.system-default</text>
 <text xml:space="preserve" text-anchor="start" x="471.48" y="-350.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -226,7 +226,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.system&#45;minimal -->
 <g id="node10" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.system-minimal</title>
-<polygon fill="none" stroke="black" points="301.72,-308 14.17,-308 14.17,-258 301.72,-258 301.72,-308"/>
+<polygon fill="#d0b2e5" stroke="black" points="301.72,-308 14.17,-308 14.17,-258 301.72,-258 301.72,-308"/>
 <text xml:space="preserve" text-anchor="start" x="22.17" y="-292.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.system-minimal</text>
 <text xml:space="preserve" text-anchor="start" x="45.48" y="-264.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -239,7 +239,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.fonts -->
 <g id="node14" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.fonts</title>
-<polygon fill="none" stroke="black" points="564.41,-308 323.48,-308 323.48,-258 564.41,-258 564.41,-308"/>
+<polygon fill="#d0b2e5" stroke="black" points="564.41,-308 323.48,-308 323.48,-258 564.41,-258 564.41,-308"/>
 <text xml:space="preserve" text-anchor="start" x="343.98" y="-292.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.fonts</text>
 <text xml:space="preserve" text-anchor="start" x="331.48" y="-264.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -252,7 +252,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.home&#45;manager -->
 <g id="node16" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.home-manager</title>
-<polygon fill="none" stroke="black" points="868.99,-308 586.9,-308 586.9,-258 868.99,-258 868.99,-308"/>
+<polygon fill="#d0b2e5" stroke="black" points="868.99,-308 586.9,-308 586.9,-258 868.99,-258 868.99,-308"/>
 <text xml:space="preserve" text-anchor="start" x="594.9" y="-292.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.home-manager</text>
 <text xml:space="preserve" text-anchor="start" x="615.48" y="-264.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -265,7 +265,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.local -->
 <g id="node20" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.local</title>
-<polygon fill="none" stroke="black" points="1135.41,-308 894.48,-308 894.48,-258 1135.41,-258 1135.41,-308"/>
+<polygon fill="#d0b2e5" stroke="black" points="1135.41,-308 894.48,-308 894.48,-258 1135.41,-258 1135.41,-308"/>
 <text xml:space="preserve" text-anchor="start" x="916.13" y="-292.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.local</text>
 <text xml:space="preserve" text-anchor="start" x="902.48" y="-264.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -278,7 +278,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/types/minimal.nix -->
 <g id="node11" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/types/minimal.nix</title>
-<polygon fill="none" stroke="black" points="303.89,-222 0,-222 0,-172 303.89,-172 303.89,-222"/>
+<polygon fill="#d0b2e5" stroke="black" points="303.89,-222 0,-222 0,-172 303.89,-172 303.89,-222"/>
 <text xml:space="preserve" text-anchor="start" x="36.4" y="-206.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/types/minimal.nix</text>
 <text xml:space="preserve" text-anchor="start" x="8" y="-192.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.system-minimal</text>
 <text xml:space="preserve" text-anchor="start" x="39.48" y="-178.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -292,7 +292,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;flake.nix#modules.nixos.nix&#45;settings -->
 <g id="node12" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-flake.nix#modules.nixos.nix-settings</title>
-<polygon fill="none" stroke="black" points="282.09,-136 21.8,-136 21.8,-86 282.09,-86 282.09,-136"/>
+<polygon fill="#d0b2e5" stroke="black" points="282.09,-136 21.8,-136 21.8,-86 282.09,-86 282.09,-136"/>
 <text xml:space="preserve" text-anchor="start" x="29.8" y="-120.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">flake.nix#modules.nixos.nix-settings</text>
 <text xml:space="preserve" text-anchor="start" x="39.48" y="-92.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
 </g>
@@ -305,7 +305,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/nix/settings.nix -->
 <g id="node13" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/nix/settings.nix</title>
-<polygon fill="none" stroke="black" points="290.68,-50 13.21,-50 13.21,0 290.68,0 290.68,-50"/>
+<polygon fill="#d0b2e5" stroke="black" points="290.68,-50 13.21,-50 13.21,0 290.68,0 290.68,-50"/>
 <text xml:space="preserve" text-anchor="start" x="70.26" y="-34.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/nix/settings.nix</text>
 <text xml:space="preserve" text-anchor="start" x="21.21" y="-20.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.nix-settings</text>
 <text xml:space="preserve" text-anchor="start" x="39.48" y="-6.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -319,7 +319,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/settings/font.nix -->
 <g id="node15" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/settings/font.nix</title>
-<polygon fill="none" stroke="black" points="562.41,-222 321.48,-222 321.48,-172 562.41,-172 562.41,-222"/>
+<polygon fill="#d0b2e5" stroke="black" points="562.41,-222 321.48,-222 321.48,-172 562.41,-172 562.41,-222"/>
 <text xml:space="preserve" text-anchor="start" x="331.09" y="-206.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/settings/font.nix</text>
 <text xml:space="preserve" text-anchor="start" x="331.44" y="-192.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.fonts</text>
 <text xml:space="preserve" text-anchor="start" x="329.48" y="-178.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -333,7 +333,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/nix/home&#45;manager.nix -->
 <g id="node17" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/nix/home-manager.nix</title>
-<polygon fill="none" stroke="black" points="881.74,-222 580.15,-222 580.15,-172 881.74,-172 881.74,-222"/>
+<polygon fill="#d0b2e5" stroke="black" points="881.74,-222 580.15,-222 580.15,-172 881.74,-172 881.74,-222"/>
 <text xml:space="preserve" text-anchor="start" x="625.92" y="-206.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/nix/home-manager.nix</text>
 <text xml:space="preserve" text-anchor="start" x="588.15" y="-192.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.home-manager</text>
 <text xml:space="preserve" text-anchor="start" x="618.48" y="-178.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -347,7 +347,7 @@
 <!-- lbaqba9dpmxrdby603iavfiyc7j9dk05&#45;nixos -->
 <g id="node18" class="node">
 <title>lbaqba9dpmxrdby603iavfiyc7j9dk05-nixos</title>
-<polygon fill="none" stroke="black" points="850.24,-136 611.65,-136 611.65,-86 850.24,-86 850.24,-136"/>
+<polygon fill="#e5b2b8" stroke="black" points="850.24,-136 611.65,-136 611.65,-86 850.24,-86 850.24,-136"/>
 <text xml:space="preserve" text-anchor="start" x="712.66" y="-120.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">nixos</text>
 <text xml:space="preserve" text-anchor="start" x="619.65" y="-92.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">lbaqba9dpmxrdby603iavfiyc7j9dk05</text>
 </g>
@@ -360,7 +360,7 @@
 <!-- lbaqba9dpmxrdby603iavfiyc7j9dk05&#45;nixos/common.nix -->
 <g id="node19" class="node">
 <title>lbaqba9dpmxrdby603iavfiyc7j9dk05-nixos/common.nix</title>
-<polygon fill="none" stroke="black" points="850.24,-50 611.65,-50 611.65,0 850.24,0 850.24,-50"/>
+<polygon fill="#e5b2b8" stroke="black" points="850.24,-50 611.65,-50 611.65,0 850.24,0 850.24,-50"/>
 <text xml:space="preserve" text-anchor="start" x="669.49" y="-34.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">nixos/common.nix</text>
 <text xml:space="preserve" text-anchor="start" x="619.65" y="-6.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">lbaqba9dpmxrdby603iavfiyc7j9dk05</text>
 </g>
@@ -373,7 +373,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/settings/local.nix -->
 <g id="node21" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/settings/local.nix</title>
-<polygon fill="none" stroke="black" points="1142.54,-222 899.35,-222 899.35,-172 1142.54,-172 1142.54,-222"/>
+<polygon fill="#d0b2e5" stroke="black" points="1142.54,-222 899.35,-222 899.35,-172 1142.54,-172 1142.54,-222"/>
 <text xml:space="preserve" text-anchor="start" x="907.35" y="-206.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/settings/local.nix</text>
 <text xml:space="preserve" text-anchor="start" x="911.22" y="-192.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.local</text>
 <text xml:space="preserve" text-anchor="start" x="908.48" y="-178.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -387,7 +387,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/programs/wm/cosmic.nix -->
 <g id="node23" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/programs/wm/cosmic.nix</title>
-<polygon fill="none" stroke="black" points="1001.05,-394 750.83,-394 750.83,-344 1001.05,-344 1001.05,-394"/>
+<polygon fill="#d0b2e5" stroke="black" points="1001.05,-394 750.83,-394 750.83,-344 1001.05,-344 1001.05,-394"/>
 <text xml:space="preserve" text-anchor="start" x="761.19" y="-378.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/programs/wm/cosmic.nix</text>
 <text xml:space="preserve" text-anchor="start" x="758.83" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.cosmic</text>
 <text xml:space="preserve" text-anchor="start" x="763.48" y="-350.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -401,7 +401,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/programs/wm/steam.nix -->
 <g id="node25" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/programs/wm/steam.nix</title>
-<polygon fill="none" stroke="black" points="1264.34,-394 1019.55,-394 1019.55,-344 1264.34,-344 1264.34,-394"/>
+<polygon fill="#d0b2e5" stroke="black" points="1264.34,-394 1019.55,-394 1019.55,-344 1264.34,-344 1264.34,-394"/>
 <text xml:space="preserve" text-anchor="start" x="1031.08" y="-378.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/programs/wm/steam.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1027.55" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.steam</text>
 <text xml:space="preserve" text-anchor="start" x="1029.48" y="-350.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -415,7 +415,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/nix/templates.nix -->
 <g id="node27" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/nix/templates.nix</title>
-<polygon fill="none" stroke="black" points="1549.62,-394 1282.27,-394 1282.27,-344 1549.62,-344 1549.62,-394"/>
+<polygon fill="#d0b2e5" stroke="black" points="1549.62,-394 1282.27,-394 1282.27,-344 1549.62,-344 1549.62,-394"/>
 <text xml:space="preserve" text-anchor="start" x="1328.42" y="-378.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/nix/templates.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1290.27" y="-364.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.templates</text>
 <text xml:space="preserve" text-anchor="start" x="1303.48" y="-350.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -429,7 +429,7 @@
 <!-- 9jvlhq1fmnvd536bcq2y2ckiq8pg3si8&#45;modules/system/settings/systemd&#45;boot.nix -->
 <g id="node29" class="node">
 <title>9jvlhq1fmnvd536bcq2y2ckiq8pg3si8-modules/system/settings/systemd-boot.nix</title>
-<polygon fill="none" stroke="black" points="1476.48,-566 1173.41,-566 1173.41,-516 1476.48,-516 1476.48,-566"/>
+<polygon fill="#d0b2e5" stroke="black" points="1476.48,-566 1173.41,-566 1173.41,-516 1476.48,-516 1476.48,-566"/>
 <text xml:space="preserve" text-anchor="start" x="1181.41" y="-550.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">modules/system/settings/systemd-boot.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1187.6" y="-536.4" font-family="Helvetica,sans-Serif" font-size="14.00">via option flake.modules.nixos.systemd-boot</text>
 <text xml:space="preserve" text-anchor="start" x="1212.48" y="-522.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">9jvlhq1fmnvd536bcq2y2ckiq8pg3si8</text>
@@ -443,7 +443,7 @@
 <!-- dx2qikyb4dyb6hbdfywbmsyla0z5a1h3&#45;nixos/modules/installer/scan/not&#45;detected.nix -->
 <g id="node32" class="node">
 <title>dx2qikyb4dyb6hbdfywbmsyla0z5a1h3-nixos/modules/installer/scan/not-detected.nix</title>
-<polygon fill="none" stroke="black" points="1775.65,-652 1456.24,-652 1456.24,-602 1775.65,-602 1775.65,-652"/>
+<polygon fill="#cbe5b2" stroke="black" points="1775.65,-652 1456.24,-652 1456.24,-602 1775.65,-602 1775.65,-652"/>
 <text xml:space="preserve" text-anchor="start" x="1464.24" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">nixos/modules/installer/scan/not-detected.nix</text>
 <text xml:space="preserve" text-anchor="start" x="1498.03" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">dx2qikyb4dyb6hbdfywbmsyla0z5a1h3</text>
 </g>
@@ -456,7 +456,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/13&#45;inch/common -->
 <g id="node34" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/13-inch/common</title>
-<polygon fill="none" stroke="black" points="2787.28,-738 2552.61,-738 2552.61,-688 2787.28,-688 2787.28,-738"/>
+<polygon fill="#dce5b2" stroke="black" points="2787.28,-738 2552.61,-738 2552.61,-688 2787.28,-688 2787.28,-738"/>
 <text xml:space="preserve" text-anchor="start" x="2576.98" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/13-inch/common</text>
 <text xml:space="preserve" text-anchor="start" x="2560.61" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -469,7 +469,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/13&#45;inch/common/amd.nix -->
 <g id="node42" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/13-inch/common/amd.nix</title>
-<polygon fill="none" stroke="black" points="3555.31,-738 3296.58,-738 3296.58,-688 3555.31,-688 3555.31,-738"/>
+<polygon fill="#dce5b2" stroke="black" points="3555.31,-738 3296.58,-738 3296.58,-688 3555.31,-688 3555.31,-738"/>
 <text xml:space="preserve" text-anchor="start" x="3304.58" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/13-inch/common/amd.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3316.61" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -482,7 +482,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/cpu/amd/raphael/igpu.nix -->
 <g id="node46" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/cpu/amd/raphael/igpu.nix</title>
-<polygon fill="none" stroke="black" points="3820.46,-738 3573.43,-738 3573.43,-688 3820.46,-688 3820.46,-738"/>
+<polygon fill="#dce5b2" stroke="black" points="3820.46,-738 3573.43,-738 3573.43,-688 3820.46,-688 3820.46,-738"/>
 <text xml:space="preserve" text-anchor="start" x="3581.43" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/cpu/amd/raphael/igpu.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3587.61" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -495,7 +495,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/pc/laptop -->
 <g id="node35" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/pc/laptop</title>
-<polygon fill="none" stroke="black" points="2028.28,-652 1793.61,-652 1793.61,-602 2028.28,-602 2028.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="2028.28,-652 1793.61,-652 1793.61,-602 2028.28,-602 2028.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="1848.72" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/pc/laptop</text>
 <text xml:space="preserve" text-anchor="start" x="1801.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -508,7 +508,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/pc/ssd -->
 <g id="node37" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/pc/ssd</title>
-<polygon fill="none" stroke="black" points="2281.28,-652 2046.61,-652 2046.61,-602 2281.28,-602 2281.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="2281.28,-652 2046.61,-652 2046.61,-602 2281.28,-602 2281.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="2110.65" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/pc/ssd</text>
 <text xml:space="preserve" text-anchor="start" x="2054.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -521,7 +521,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/bluetooth.nix -->
 <g id="node38" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/bluetooth.nix</title>
-<polygon fill="none" stroke="black" points="2534.28,-652 2299.61,-652 2299.61,-602 2534.28,-602 2534.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="2534.28,-652 2299.61,-652 2299.61,-602 2534.28,-602 2534.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="2335.66" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/bluetooth.nix</text>
 <text xml:space="preserve" text-anchor="start" x="2307.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -534,7 +534,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/kmod.nix -->
 <g id="node39" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/kmod.nix</title>
-<polygon fill="none" stroke="black" points="2787.28,-652 2552.61,-652 2552.61,-602 2787.28,-602 2787.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="2787.28,-652 2552.61,-652 2552.61,-602 2787.28,-602 2787.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="2601.87" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/kmod.nix</text>
 <text xml:space="preserve" text-anchor="start" x="2560.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -547,7 +547,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/framework&#45;tool.nix -->
 <g id="node40" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/framework-tool.nix</title>
-<polygon fill="none" stroke="black" points="3040.28,-652 2805.61,-652 2805.61,-602 3040.28,-602 3040.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="3040.28,-652 2805.61,-652 2805.61,-602 3040.28,-602 3040.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="2822.98" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/framework-tool.nix</text>
 <text xml:space="preserve" text-anchor="start" x="2813.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -560,7 +560,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;framework/13&#45;inch/common/audio.nix -->
 <g id="node41" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-framework/13-inch/common/audio.nix</title>
-<polygon fill="none" stroke="black" points="3325.58,-652 3058.31,-652 3058.31,-602 3325.58,-602 3325.58,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="3325.58,-652 3058.31,-652 3058.31,-602 3325.58,-602 3325.58,-652"/>
 <text xml:space="preserve" text-anchor="start" x="3066.31" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">framework/13-inch/common/audio.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3082.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -573,7 +573,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/pc -->
 <g id="node36" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/pc</title>
-<polygon fill="none" stroke="black" points="2028.28,-566 1793.61,-566 1793.61,-516 2028.28,-516 2028.28,-566"/>
+<polygon fill="#dce5b2" stroke="black" points="2028.28,-566 1793.61,-566 1793.61,-516 2028.28,-516 2028.28,-566"/>
 <text xml:space="preserve" text-anchor="start" x="1871.66" y="-550.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/pc</text>
 <text xml:space="preserve" text-anchor="start" x="1801.61" y="-522.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -586,7 +586,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/cpu/amd -->
 <g id="node43" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/cpu/amd</title>
-<polygon fill="none" stroke="black" points="3616.28,-566 3381.61,-566 3381.61,-516 3616.28,-516 3616.28,-566"/>
+<polygon fill="#dce5b2" stroke="black" points="3616.28,-566 3381.61,-566 3381.61,-516 3616.28,-516 3616.28,-566"/>
 <text xml:space="preserve" text-anchor="start" x="3439.05" y="-550.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/cpu/amd</text>
 <text xml:space="preserve" text-anchor="start" x="3389.61" y="-522.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -599,7 +599,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/cpu/amd/pstate.nix -->
 <g id="node44" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/cpu/amd/pstate.nix</title>
-<polygon fill="none" stroke="black" points="3616.28,-652 3381.61,-652 3381.61,-602 3616.28,-602 3616.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="3616.28,-652 3381.61,-652 3381.61,-602 3616.28,-602 3616.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="3404.43" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/cpu/amd/pstate.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3389.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -612,7 +612,7 @@
 <!-- hj48nw88f3w8zlcllck9czqrrdzqqy12&#45;common/gpu/amd -->
 <g id="node45" class="node">
 <title>hj48nw88f3w8zlcllck9czqrrdzqqy12-common/gpu/amd</title>
-<polygon fill="none" stroke="black" points="3869.28,-652 3634.61,-652 3634.61,-602 3869.28,-602 3869.28,-652"/>
+<polygon fill="#dce5b2" stroke="black" points="3869.28,-652 3634.61,-652 3634.61,-602 3869.28,-602 3869.28,-652"/>
 <text xml:space="preserve" text-anchor="start" x="3691.67" y="-636.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">common/gpu/amd</text>
 <text xml:space="preserve" text-anchor="start" x="3642.61" y="-608.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">hj48nw88f3w8zlcllck9czqrrdzqqy12</text>
 </g>
@@ -637,7 +637,7 @@
 <!-- 027sdaajhz0qlzkwmrxs5bzawf5lz6cc&#45;lib/make&#45;disk&#45;image.nix -->
 <g id="node48" class="node">
 <title>027sdaajhz0qlzkwmrxs5bzawf5lz6cc-lib/make-disk-image.nix</title>
-<polygon fill="none" stroke="black" points="4083.33,-738 3838.56,-738 3838.56,-688 4083.33,-688 4083.33,-738"/>
+<polygon fill="#e5b2dc" stroke="black" points="4083.33,-738 3838.56,-738 3838.56,-688 4083.33,-688 4083.33,-738"/>
 <text xml:space="preserve" text-anchor="start" x="3881.97" y="-722.4" font-family="Helvetica,sans-Serif" font-weight="bold" font-size="14.00">lib/make-disk-image.nix</text>
 <text xml:space="preserve" text-anchor="start" x="3846.56" y="-694.4" font-family="Helvetica,sans-Serif" font-style="italic" font-size="14.00">027sdaajhz0qlzkwmrxs5bzawf5lz6cc</text>
 </g>
