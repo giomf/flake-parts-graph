@@ -1,53 +1,81 @@
 #!/usr/bin/env python
 import argparse
 import colorsys
+import html
 import json
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import graphviz
+import graphviz.encoding
+
+_UNKNOWN_MODULE: str = "<unknown-module>"
+_UNKNOWN_SOURCE: str = "<unknown-source>"
+_UNKNOWN_FUNCTION_CHAIN: str = "<unknown-function-chain>"
+_UNKNOWN_FUNCTION_CHAIN_REGEX: str = r"(__functor|includes|<function body>).*$"
 
 
 @dataclass
 class ModuleGraphEdge:
-    source: str = field(default_factory=str)
-    path: str = field(default_factory=str)
-    option: str = field(default_factory=str)
+    source: str
+    module: str
+    key: str
+    option: str
 
     def __init__(self, raw_module: dict) -> None:
-        source_path, _, path_and_option = str(raw_module["file"]).partition("-source")
-        self.source = source_path.rsplit("/", 1)[-1]
-        path_and_option = path_and_option.removeprefix("/")
-        self.path, _, self.option = path_and_option.partition(", via option ")
+        file = str(raw_module["file"])
+        option = ""
+        key = ""
+        if file.startswith("<unknown-file>"):
+            self.source = _UNKNOWN_SOURCE
+            self.module = _UNKNOWN_MODULE
+            _, _, option = file.partition(", via option ")
+            key = str(abs(hash(raw_module["key"])))
+        else:
+            source, _, module_and_option = file.partition("-source")
+            self.source = source.rsplit("/", 1)[-1]
+            module_and_option = module_and_option.removeprefix("/")
+            self.module, _, option = module_and_option.partition(", via option ")
+        self.option = re.sub(_UNKNOWN_FUNCTION_CHAIN_REGEX, _UNKNOWN_FUNCTION_CHAIN, option)
+        self.key = key
 
     def to_dict(self):
-        return {"source": self.source, "path": self.path}
+        return {"source": self.source, "module": self.module, "key": self.key} | (
+            {"option": self.option} if self.option else {}
+        )
 
     def __eq__(self, other: object):
         if not isinstance(other, ModuleGraphEdge):
             return NotImplemented
-        return self.source == other.source and self.path == other.path
+        eq = self.source == other.source and self.module == other.module
+        if _UNKNOWN_SOURCE in (self.source, other.source):
+            return eq and self.key == other.key
+        return eq
 
 
 @dataclass
 class ModuleGraphNode(ModuleGraphEdge):
     imports: list[ModuleGraphEdge] = field(default_factory=list)
 
+    def gv_id(self) -> str:
+        return str(hash(self.source + self.module + self.key))
+
     def to_dict(self):
-        return (
-            super().to_dict()
-            | {"imports": [module.to_dict() for module in self.imports]}
-            | ({"option": self.option} if self.option else {})
-        )
+        return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}
 
     def __eq__(self, other: object):
         if not isinstance(other, ModuleGraphEdge):
             return NotImplemented
-        return self.source == other.source and self.path == other.path
+
+        eq = self.source == other.source and self.module == other.module
+        if _UNKNOWN_SOURCE in (self.source, other.source):
+            return eq and self.key == other.key
+        return eq
 
 
 class ModuleGraph:
-    modules: dict[tuple[str, str], ModuleGraphNode]
+    modules: dict[tuple[str, str, str], ModuleGraphNode]
 
     def __init__(self, raw_modules: list, option_filter: str | None) -> None:
         """Build a ModuleGraph from the loaded JSON data."""
@@ -65,7 +93,7 @@ class ModuleGraph:
         edge = ModuleGraphEdge(raw_module)
 
         # Check if flake.nix starting point
-        is_flake_entry = edge.path == "flake.nix"
+        is_flake_entry = edge.module == "flake.nix"
         # Check if option filter should be applied and if this edge matches the option filter
         matches_option_filter = option_filter is None or edge.option.startswith(option_filter)
 
@@ -82,14 +110,15 @@ class ModuleGraph:
             self._process_entry(imported_entry, option_filter, node)
 
     def _get_or_create_module(self, edge: ModuleGraphEdge) -> ModuleGraphNode:
-        key = (edge.source, edge.path)
+        key = (edge.source, edge.module, edge.key)
+
         if key not in self.modules:
-            node = ModuleGraphNode(edge.source, edge.path, edge.option)
+            node = ModuleGraphNode(edge.source, edge.module, edge.key, edge.option)
             self.modules[key] = node
         return self.modules[key]
 
     def _add_import_to_module(self, parent: ModuleGraphNode, edge: ModuleGraphEdge) -> None:
-        key = (parent.source, parent.path)
+        key = (parent.source, parent.module, parent.key)
         if edge not in self.modules[key].imports:
             self.modules[key].imports.append(edge)
 
@@ -102,16 +131,22 @@ class ModuleGraph:
         dot.attr("node", shape="box", fontname="Helvetica", style="filled")
 
         # Add nodes
-        for (source, path), node in self.modules.items():
-            node_id = f"{source}-{path}"
-            label = f"<<B>{path}</B><BR/>{node.option}<BR/><I>{source}</I>>"
+        for (source, module, key), node in self.modules.items():
+            node_id = graphviz.escape(f"{source}-{module}")
+            if source == _UNKNOWN_SOURCE:
+                node_id = graphviz.escape(f"{node_id}-{key}")
+            label = f"<<B>{html.escape(module)}</B><BR/>{html.escape(node.option)}<BR/><I>{html.escape(source)}</I>>"
             dot.node(name=node_id, label=label, fillcolor=ModuleGraph._color_from_cluster_id(source))
 
         # Add edges
-        for (source, path), node in self.modules.items():
-            from_id = f"{source}-{path}"
-            for imported_edge in node.imports:
-                to_id = f"{imported_edge.source}-{imported_edge.path}"
+        for (source, module, key), node in self.modules.items():
+            from_id = graphviz.escape(f"{source}-{module}")
+            if source == _UNKNOWN_SOURCE:
+                from_id = graphviz.escape(f"{from_id}-{key}")
+            for edge in node.imports:
+                to_id = graphviz.escape(f"{edge.source}-{edge.module}")
+                if edge.source == _UNKNOWN_SOURCE:
+                    to_id = graphviz.escape(f"{to_id}-{edge.key}")
                 dot.edge(from_id, to_id)
 
         return dot
