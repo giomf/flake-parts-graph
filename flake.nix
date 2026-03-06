@@ -13,14 +13,11 @@
       pyproject-nix,
     }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-
-      # Variable to easily change Python version
-      pythonVersion = "313"; # 311 for Python 3.11, 312 for Python 3.12, etc.
-
-      # Use this variable to select the right package set
-      pp = pkgs."python${pythonVersion}Packages";
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
 
       # Loads pyproject.toml into a high-level project representation
       # Do you notice how this is not tied to any `system` attribute or package sets?
@@ -30,25 +27,41 @@
         # projectRoot is also used to set `src` for renderers such as buildPythonPackage.
         projectRoot = ./.;
       };
+
+      # Variable to easily change Python version
+      pythonVersion = "313"; # 311 for Python 3.11, 312 for Python 3.12, etc.
     in
     {
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.jq
-          pkgs.ruff
-          pkgs.ty
-          pkgs.uv
-          pp.python
-          # Only used for goto definiton/...
-          pp.python-lsp-server
-        ];
-      };
-      packages.${system}.default =
+      devShells = forAllSystems (system:
         let
+          pkgs = import nixpkgs { inherit system; };
+          pp = pkgs."python${pythonVersion}Packages";
+        in
+        {
+          default = pkgs.mkShell {
+            buildInputs = [
+              pkgs.jq
+              pkgs.ruff
+              pkgs.ty
+              pkgs.uv
+              pp.python
+              # Only used for goto definiton/...
+              pp.python-lsp-server
+            ];
+          };
+        }
+      );
+      packages = forAllSystems (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          pp = pkgs."python${pythonVersion}Packages";
           # Returns an attribute set that can be passed to `buildPythonPackage`.
           attrs = project.renderers.buildPythonPackage { python = pp.python; };
         in
-        # Pass attributes to buildPythonPackage.
-        pp.python.pkgs.buildPythonPackage (attrs);
+        {
+          # Pass attributes to buildPythonPackage.
+          default = pp.python.pkgs.buildPythonPackage (attrs);
+        }
+      );
     };
 }
