@@ -10,8 +10,8 @@ from pathlib import Path
 import graphviz
 import graphviz.encoding
 
-_UNKNOWN_MODULE: str = "<unknown-module>"
 _UNKNOWN_SOURCE: str = "<unknown-source>"
+_UNKNOWN_MODULE: str = "<unknown-module>"
 _UNKNOWN_FUNCTION_CHAIN: str = "<unknown-function-chain>"
 _UNKNOWN_FUNCTION_CHAIN_REGEX: str = r"(__functor|includes|<function body>).*$"
 
@@ -57,9 +57,6 @@ class ModuleGraphEdge:
 @dataclass
 class ModuleGraphNode(ModuleGraphEdge):
     imports: list[ModuleGraphEdge] = field(default_factory=list)
-
-    def gv_id(self) -> str:
-        return str(hash(self.source + self.module + self.key))
 
     def to_dict(self):
         return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}

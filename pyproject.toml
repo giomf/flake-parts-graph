@@ -22,6 +22,7 @@ select = [ "ALL" ]
 # Ignore specific rules
 ignore = [
     "E501",  # line too long (handled by line-length)
+    "PT009"
 ]
 
 # Exclude directories
