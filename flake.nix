@@ -32,7 +32,8 @@
       pythonVersion = "313"; # 311 for Python 3.11, 312 for Python 3.12, etc.
     in
     {
-      devShells = forAllSystems (system:
+      devShells = forAllSystems (
+        system:
         let
           pkgs = import nixpkgs { inherit system; };
           pp = pkgs."python${pythonVersion}Packages";
@@ -51,7 +52,8 @@
           };
         }
       );
-      packages = forAllSystems (system:
+      packages = forAllSystems (
+        system:
         let
           pkgs = import nixpkgs { inherit system; };
           pp = pkgs."python${pythonVersion}Packages";
@@ -63,5 +65,13 @@
           default = pp.python.pkgs.buildPythonPackage (attrs);
         }
       );
+      checks = forAllSystems (system: {
+        tests = self.packages.${system}.default.overrideAttrs (_: {
+          doCheck = true;
+          checkPhase = ''
+            python -m unittest discover -s tests -v
+          '';
+        });
+      });
     };
 }
