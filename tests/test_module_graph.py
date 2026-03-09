@@ -5,71 +5,44 @@ from nixoscope import ModuleGraph
 _SOURCE: str = "abc123"
 _STORE_PATH: str = f"/nix/store/{_SOURCE}-source"
 
-_SIMPLE_GRAPH = {
-    "disabled": False,
-    "file": f"{_STORE_PATH}/flake.nix",
-    "key": "",
-    "imports": [
-        {"disabled": False, "file": f"{_STORE_PATH}/foo.nix", "key": "", "imports": []},
-        {"disabled": False, "file": f"{_STORE_PATH}/bar.nix", "key": "", "imports": []},
-        {"disabled": False, "file": f"{_STORE_PATH}/baz.nix", "key": "", "imports": []},
-    ],
-}
 
-_NESTED_GRAPH = {
-    "disabled": False,
-    "file": f"{_STORE_PATH}/flake.nix",
-    "key": "",
-    "imports": [
-        {
-            "disabled": False,
-            "file": f"{_STORE_PATH}/level1.nix",
-            "key": "",
-            "imports": [
-                {
-                    "disabled": False,
-                    "file": f"{_STORE_PATH}/level2.nix",
-                    "key": "",
-                    "imports": [
-                        {
-                            "disabled": False,
-                            "file": f"{_STORE_PATH}/level3.nix",
-                            "key": "",
-                            "imports": [],
-                        },
-                    ],
-                },
-            ],
-        },
-    ],
-}
+def make_node(filename: str, *imports: dict, option: str | None = None, disabled: bool = False, key: str = "") -> dict:
+    file = f"{_STORE_PATH}/{filename}" if option is None else f"{_STORE_PATH}/{filename}, via option {option}"
+    return {
+        "disabled": disabled,
+        "file": file,
+        "key": key,
+        "imports": list(imports),
+    }
 
-_OPTION_GRAPH = {
-    "disabled": False,
-    "file": f"{_STORE_PATH}/flake.nix",
-    "key": "",
-    "imports": [
-        {
-            "disabled": False,
-            "file": f"{_STORE_PATH}/services.nix, via option services",
-            "key": "",
-            "imports": [
-                {
-                    "disabled": False,
-                    "file": f"{_STORE_PATH}/nginx.nix, via option services.nginx",
-                    "key": "",
-                    "imports": [],
-                },
-            ],
-        },
-        {
-            "disabled": False,
-            "file": f"{_STORE_PATH}/networking.nix, via option networking",
-            "key": "",
-            "imports": [],
-        },
-    ],
-}
+
+_SIMPLE_GRAPH = make_node(
+    "flake.nix",
+    make_node("foo.nix"),
+    make_node("bar.nix"),
+    make_node("baz.nix"),
+)
+
+_NESTED_GRAPH = make_node(
+    "flake.nix",
+    make_node(
+        "level1.nix",
+        make_node(
+            "level2.nix",
+            make_node("level3.nix"),
+        ),
+    ),
+)
+
+_OPTION_GRAPH = make_node(
+    "flake.nix",
+    make_node(
+        "services.nix",
+        make_node("nginx.nix", option="services.nginx"),
+        option="services",
+    ),
+    make_node("networking.nix", option="networking"),
+)
 
 
 class TestSimpleGraph(unittest.TestCase):
