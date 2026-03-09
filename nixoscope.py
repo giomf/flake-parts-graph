@@ -78,13 +78,13 @@ class ModuleGraphEdge:
         self.option = re.sub(_UNKNOWN_FUNCTION_CHAIN_REGEX, _UNKNOWN_FUNCTION_CHAIN, option)
         self.key = key
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """Serialise to a plain dict, omitting ``option`` when empty."""
         return {"source": self.source, "module": self.module, "key": self.key} | (
             {"option": self.option} if self.option else {}
         )
 
-    def __eq__(self, other: object):
+    def __eq__(self, other: object) -> bool:
         """Two edges are equal when they point to the same source/module pair.
 
         For unknown-source entries the ``key`` is also compared because the
@@ -109,11 +109,11 @@ class ModuleGraphNode(ModuleGraphEdge):
 
     imports: list[ModuleGraphEdge] = field(default_factory=list)
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """Serialise node and all its imports recursively to a plain dict."""
         return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}
 
-    def __eq__(self, other: object):
+    def __eq__(self, other: object) -> bool:
         if not isinstance(other, ModuleGraphEdge):
             return NotImplemented
 
