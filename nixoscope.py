@@ -97,6 +97,10 @@ class ModuleGraphEdge:
             return eq and self.key == other.key
         return eq
 
+    def __hash__(self) -> int:
+        """Hash based on the same fields used by ``__eq__``."""
+        return hash((self.source, self.module, self.key))
+
 
 @dataclass
 class ModuleGraphNode(ModuleGraphEdge):
@@ -114,13 +118,12 @@ class ModuleGraphNode(ModuleGraphEdge):
         return super().to_dict() | {"imports": [module.to_dict() for module in self.imports]}
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, ModuleGraphEdge):
-            return NotImplemented
+        """Inherit equality semantics from :class:`ModuleGraphEdge`."""
+        return super().__eq__(other)
 
-        eq = self.source == other.source and self.module == other.module
-        if _UNKNOWN_SOURCE in (self.source, other.source):
-            return eq and self.key == other.key
-        return eq
+    def __hash__(self) -> int:
+        """Inherit hash semantics from :class:`ModuleGraphEdge`."""
+        return super().__hash__()
 
 
 class ModuleGraph:
