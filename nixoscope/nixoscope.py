@@ -29,7 +29,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--format",
         type=str,
-        choices=["gv", "json"],
+        choices=["gv", "mm", "json"],
         default="gv",
         help="Output format (default: gv)",
     )
@@ -60,6 +60,8 @@ def main() -> None:
 
     if args.format == "gv":
         print(graph.to_gv())
+    elif args.format == "mm":
+        print(graph.to_mm())
     else:
         print(graph.to_json())
 

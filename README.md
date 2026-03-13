@@ -32,6 +32,9 @@ default: graph.json
 #### Graphviz: 
 `nixoscope.py --format gv`  
 default: gv
+#### Mermaid: 
+`nixoscope.py --format mm`  
+default: gv
 #### JSON  
 `nixoscope.py --format json`  
 default: gv

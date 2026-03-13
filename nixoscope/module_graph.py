@@ -19,6 +19,7 @@ _UNKNOWN_SOURCE: str = "<unknown-source>"
 _UNKNOWN_MODULE: str = "<unknown-module>"
 _UNKNOWN_FUNCTION_CHAIN: str = "<unknown-function-chain>"
 _UNKNOWN_FUNCTION_CHAIN_REGEX: str = r"(__functor|includes|<function body>).*$"
+_SAFE_MERMAID_ID_RE: re.Pattern[str] = re.compile(r"[^a-zA-Z0-9]")
 
 
 @dataclass
@@ -229,6 +230,38 @@ class ModuleGraph:
                 dot.edge(from_id, to_id)
 
         return dot
+
+    @staticmethod
+    def _mermaid_node_id(source: str, module: str, key: str) -> str:
+        """Return a Mermaid-safe node identifier derived from source, module, and key."""
+        raw = f"{source}_{module}_{key}" if key else f"{source}_{module}"
+        return "n" + _SAFE_MERMAID_ID_RE.sub("_", raw)
+
+    def to_mm(self) -> str:
+        """Render the graph as a Mermaid ``flowchart TD`` string.
+
+        Each node is labelled with the module filename, its triggering option
+        (if any), and the source hash, separated by ``<br/>``.  Edges mirror
+        the import relationships stored in the graph.
+        """
+        lines = ["flowchart TD"]
+
+        for (source, module, key), node in self.modules.items():
+            nid = ModuleGraph._mermaid_node_id(source, module, key)
+            parts = [f"**{module}**", node.option, f"_{source}_"]
+            lines.append('    {}["`{}`"]'.format(nid, "\n".join(parts)))
+
+        for (source, module, key), node in self.modules.items():
+            from_id = ModuleGraph._mermaid_node_id(source, module, key)
+            for edge in node.imports:
+                to_id = ModuleGraph._mermaid_node_id(edge.source, edge.module, edge.key)
+                lines.append(f"    {from_id} --> {to_id}")
+
+        for source, module, key in self.modules:
+            nid = ModuleGraph._mermaid_node_id(source, module, key)
+            lines.append(f"    style {nid} fill:{ModuleGraph._color_from_cluster_id(source)},color:#000000")
+
+        return "\n".join(lines)
 
     @staticmethod
     def _color_from_cluster_id(cluster_id: str) -> str:
