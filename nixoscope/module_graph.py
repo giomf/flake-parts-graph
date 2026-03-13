@@ -1,25 +1,24 @@
 """module_graph - Build and render NixOS module import graphs.
 
 Parses raw module graph data (as produced by ``nixos-option`` or similar
-tooling) into a graph of :class:`ModuleGraphEdge` nodes and exposes the
-result as a Graphviz digraph (.gv) or structured JSON via
-:class:`ModuleGraph`.
+tooling) into a graph of :class:`ModuleGraphEdge` nodes.  Use a
+:class:`~visualizer.Visualizer` strategy with :meth:`ModuleGraph.render`
+to produce output in the desired format.
 """
 
-import colorsys
-import html
-import json
+from __future__ import annotations
+
 import re
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING
 
-import graphviz
-import graphviz.encoding
+if TYPE_CHECKING:
+    from .visualizer import Visualizer
 
-_UNKNOWN_SOURCE: str = "<unknown-source>"
+UNKNOWN_SOURCE: str = "<unknown-source>"
 _UNKNOWN_MODULE: str = "<unknown-module>"
 _UNKNOWN_FUNCTION_CHAIN: str = "<unknown-function-chain>"
 _UNKNOWN_FUNCTION_CHAIN_REGEX: str = r"(__functor|includes|<function body>).*$"
-_SAFE_MERMAID_ID_RE: re.Pattern[str] = re.compile(r"[^a-zA-Z0-9]")
 
 
 @dataclass
@@ -61,7 +60,7 @@ class ModuleGraphEdge:
         option = ""
         key = ""
         if file.startswith("<unknown-file>"):
-            self.source = _UNKNOWN_SOURCE
+            self.source = UNKNOWN_SOURCE
             self.module = _UNKNOWN_MODULE
             _, _, option = file.partition(", via option ")
             key = str(abs(hash(raw_module["key"])))
@@ -88,7 +87,7 @@ class ModuleGraphEdge:
         if not isinstance(other, ModuleGraphEdge):
             return NotImplemented
         eq = self.source == other.source and self.module == other.module
-        if _UNKNOWN_SOURCE in (self.source, other.source):
+        if UNKNOWN_SOURCE in (self.source, other.source):
             return eq and self.key == other.key
         return eq
 
@@ -195,85 +194,6 @@ class ModuleGraph:
         if edge not in self.modules[key].imports:
             self.modules[key].imports.append(edge)
 
-    def to_json(self) -> str:
-        """Serialise the graph to a JSON string."""
-        result = [module.to_dict() for module in self.modules.values()]
-        return json.dumps(result, indent=2)
-
-    def to_gv(self) -> graphviz.Digraph:
-        """Render the graph as a Graphviz :class:`~graphviz.Digraph`.
-
-        Each node is labelled with the module filename, its triggering option
-        (if any), and the source hash. Nodes from the same derivation share a
-        background colour derived from the source hash.
-        """
-        dot = graphviz.Digraph("ModuleGraph")
-        dot.attr("node", shape="box", fontname="Helvetica", style="filled")
-
-        # Add nodes
-        for (source, module, key), node in self.modules.items():
-            node_id = graphviz.escape(f"{source}-{module}")
-            if source == _UNKNOWN_SOURCE:
-                node_id = graphviz.escape(f"{node_id}-{key}")
-            label = f"<<B>{html.escape(module)}</B><BR/>{html.escape(node.option)}<BR/><I>{html.escape(source)}</I>>"
-            dot.node(name=node_id, label=label, fillcolor=ModuleGraph._color_from_cluster_id(source))
-
-        # Add edges
-        for (source, module, key), node in self.modules.items():
-            from_id = graphviz.escape(f"{source}-{module}")
-            if source == _UNKNOWN_SOURCE:
-                from_id = graphviz.escape(f"{from_id}-{key}")
-            for edge in node.imports:
-                to_id = graphviz.escape(f"{edge.source}-{edge.module}")
-                if edge.source == _UNKNOWN_SOURCE:
-                    to_id = graphviz.escape(f"{to_id}-{edge.key}")
-                dot.edge(from_id, to_id)
-
-        return dot
-
-    @staticmethod
-    def _mermaid_node_id(source: str, module: str, key: str) -> str:
-        """Return a Mermaid-safe node identifier derived from source, module, and key."""
-        raw = f"{source}_{module}_{key}" if key else f"{source}_{module}"
-        return "n" + _SAFE_MERMAID_ID_RE.sub("_", raw)
-
-    def to_mm(self) -> str:
-        """Render the graph as a Mermaid ``flowchart TD`` string.
-
-        Each node is labelled with the module filename, its triggering option
-        (if any), and the source hash, separated by ``<br/>``.  Edges mirror
-        the import relationships stored in the graph.
-        """
-        lines = ["flowchart TD"]
-
-        for (source, module, key), node in self.modules.items():
-            nid = ModuleGraph._mermaid_node_id(source, module, key)
-            parts = [f"**{module}**", node.option, f"_{source}_"]
-            lines.append('    {}["`{}`"]'.format(nid, "\n".join(parts)))
-
-        for (source, module, key), node in self.modules.items():
-            from_id = ModuleGraph._mermaid_node_id(source, module, key)
-            for edge in node.imports:
-                to_id = ModuleGraph._mermaid_node_id(edge.source, edge.module, edge.key)
-                lines.append(f"    {from_id} --> {to_id}")
-
-        for source, module, key in self.modules:
-            nid = ModuleGraph._mermaid_node_id(source, module, key)
-            lines.append(f"    style {nid} fill:{ModuleGraph._color_from_cluster_id(source)},color:#000000")
-
-        return "\n".join(lines)
-
-    @staticmethod
-    def _color_from_cluster_id(cluster_id: str) -> str:
-        """Derive a stable pastel hex colour from ``cluster_id``.
-
-        Uses a golden-angle hue step so that adjacent hash values produce
-        visually distinct colours.
-        """
-        n = abs(hash(cluster_id))
-        # Use 137 as golden angle to create different colors even if two n are close in range
-        hue = (n * 137) % 360
-        saturation = 0.5  # not too grey, not too vivid
-        lightness = 0.80  # high = washed out / soft
-        r, g, b = colorsys.hls_to_rgb(hue / 360.0, lightness, saturation)
-        return f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
+    def render(self, visualizer: Visualizer) -> str:
+        """Render the graph using *visualizer* and return the result as a string."""
+        return visualizer.render(self)

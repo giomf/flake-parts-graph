@@ -2,7 +2,7 @@
 """nixoscope - Visualize NixOS module import graphs.
 
 Reads a NixOS module graph from a JSON file (as produced by ``nixos-option``
-or similar tooling) and renders it either as a Graphviz digraph (.gv) or as
+or similar tooling) and renders it either as a Graphviz digraph (.gv), mermaid (.mm) or as
 structured JSON.
 
 Typical usage::
@@ -14,7 +14,14 @@ import argparse
 import json
 from pathlib import Path
 
-from . import module_graph
+from .module_graph import ModuleGraph
+from .visualizer import GraphvizVisualizer, JsonVisualizer, MermaidVisualizer
+
+_VISUALIZERS = {
+    "gv": GraphvizVisualizer(),
+    "mm": MermaidVisualizer(),
+    "json": JsonVisualizer(),
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,14 +63,8 @@ def main() -> None:
 
     # Filter data to only handle everything under flake.nix
     raw_modules = [raw_module for raw_module in raw_modules if str(raw_module["file"]).endswith("/flake.nix")]
-    graph = module_graph.ModuleGraph(raw_modules, args.option)
-
-    if args.format == "gv":
-        print(graph.to_gv())
-    elif args.format == "mm":
-        print(graph.to_mm())
-    else:
-        print(graph.to_json())
+    graph = ModuleGraph(raw_modules, args.option)
+    print(graph.render(_VISUALIZERS[args.format]))
 
 
 if __name__ == "__main__":
