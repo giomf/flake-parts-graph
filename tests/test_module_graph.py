@@ -1,6 +1,6 @@
 import unittest
 
-from nixoscope import ModuleGraph
+from nixoscope.module_graph import ModuleGraph
 
 _SOURCE: str = "abc123"
 _STORE_PATH: str = f"/nix/store/{_SOURCE}-source"

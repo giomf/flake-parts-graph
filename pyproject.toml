@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [project.scripts]
-nixoscope = "nixoscope:main"
+nixoscope = "nixoscope.nixoscope:main"
 
 [tool.ruff]
 # Set the maximum line length to 120

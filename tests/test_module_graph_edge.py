@@ -1,6 +1,6 @@
 import unittest
 
-from nixoscope import ModuleGraphEdge
+from nixoscope.module_graph import ModuleGraphEdge
 
 _KNOWN_MODULE_SOURCE: str = "xxxxx"
 _KNOWN_MODULE_PATH: str = "nix/store/foo/bar/module.nix"
