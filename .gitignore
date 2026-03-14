@@ -216,6 +216,8 @@ __marimo__/
 .streamlit/secrets.toml
 
 *.json
+*.gv
+*.mm
 .direnv/
 .envrc
 result
