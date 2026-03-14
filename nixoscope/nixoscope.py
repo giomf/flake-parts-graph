@@ -12,6 +12,8 @@ Typical usage::
 
 import argparse
 import json
+import tomllib
+from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
 
 from .module_graph import ModuleGraph
@@ -26,7 +28,14 @@ _VISUALIZERS = {
 
 def parse_args() -> argparse.Namespace:
     """Parse and return command-line arguments."""
+    try:
+        _version = version("nixoscope")
+    except PackageNotFoundError:
+        _pyproject = Path(__file__).parent.parent / "pyproject.toml"
+        _version = tomllib.loads(_pyproject.read_text())["project"]["version"] if _pyproject.exists() else "unknown"
+
     parser = argparse.ArgumentParser(description="Input module graph from a JSON file.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {_version}")
     parser.add_argument(
         "--input",
         type=Path,
