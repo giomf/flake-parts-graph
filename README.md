@@ -16,31 +16,61 @@ Thanks to [this merged PR](https://github.com/NixOS/nixpkgs/pull/403839), we can
 
 For more details, see the [announcement on NixOS Discourse](https://discourse.nixos.org/t/nixpkgs-module-system-config-modules-graph/67722).
 
+## Installation
+
+### Clone and run directly
+```bash
+git clone https://github.com/giomf/nixoscope
+cd nixoscope
+python -m nixoscope.nixoscope --help
+```
+
+### Install from nixpkgs
+```bash
+nix-shell -p nixoscope
+# or with flakes
+nix profile install nixpkgs#nixoscope
+```
+
+### Run without installing
+```bash
+nix run github:giomf/nixoscope -- --help
+```
+
 ## Usage
 
-> [!TIP]  
-> You can also use `nix run github:giomf/nixoscope` instead of cloning this repository and executing `nixoscope.py`
-
 ### Obtaining the input graph:  
-`nix eval --json '.#nixosConfigurations.<your-config>.graph' > graph.json`
+```bash
+nix eval --json '.#nixosConfigurations.<your-config>.graph' > graph.json
+```
 
 ### Read the input graph:
-`nixoscope.py --input graph.json`  
+```bash
+nixoscope --input graph.json
+```
 default: graph.json
 
 ### Output format:
 #### Graphviz: 
-`nixoscope.py --format gv`  
+```bash
+nixoscope --format gv
+```
 default: gv
 #### Mermaid: 
-`nixoscope.py --format mm`  
+```bash
+nixoscope --format mm
+```
 default: gv
 #### JSON  
-`nixoscope.py --format json`  
+```bash
+nixoscope --format json
+```
 default: gv
 
 ### Filter by option prefix
-`nixoscope.py --option "flake.modules"`  
+```bash
+nixoscope --option "flake.modules"
+```
 
 ## Result
 ![Graphviz output](./docs/graph.svg)
